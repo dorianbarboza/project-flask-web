@@ -1,11 +1,14 @@
+# -*- coding: utf-8 -*-
+
 from flask import Flask
 from flask import request
+from flask import render_template
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder = 'templates_html')
 
 @app.route('/')
-def index():
-    return 'index page'
+def home():
+    return 'home page'
 
 """ RUTAS Y PARAMETROS """
 
@@ -31,6 +34,10 @@ def params2(name = 'Nulo', lastname = 'Nulo'):
 def params3(table = 'Nulo', id = 'Nulo'):
     # http://127.0.0.1:8000/params3/usuario/1/
     return 'El parametro es: {} {}'.format(table, id)
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug = True, port = 8000)
