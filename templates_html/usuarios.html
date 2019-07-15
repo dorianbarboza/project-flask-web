@@ -1,0 +1,7 @@
+{% extends 'sistema/sistema.html' %}
+
+{% block block_sistema %}
+    {% for item in list_users_html %}
+        <p>{{ item }}</p>
+    {% endfor %}
+{% endblock %}

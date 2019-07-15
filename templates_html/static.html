@@ -1,0 +1,11 @@
+<html>
+<head>
+  <title>Archivos estaticos</title>
+  <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='css/style.css' )}}>
+</head>
+<body>
+  <p>staticFiles</p>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/code.js' )}}"></script>
+</body>
+</html>

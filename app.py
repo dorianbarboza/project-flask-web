@@ -39,5 +39,32 @@ def params3(table = 'Nulo', id = 'Nulo'):
 def index():
     return render_template('index.html')
 
+@app.route('/pruebas/<name>/')
+def pruebas(name = 'Nulo'):
+    # Lista = [] Corchetes
+    # Tupla = () Parentecis
+    # Diccionairio = JSON
+    lastname = 'Barboza'
+    name_complete = ["Dorian", "Barboza"]
+    age = 18
+    return render_template('pruebas.html', name_html = name, lastname_html = lastname, name_complete_html = name_complete, age_html = age)
+
+""" Herencia de plantillas """
+@app.route('/herencia/')
+def herencia():
+    nombre = "Dorian"
+    return render_template('herencia.html', nombre_html = nombre)
+
+@app.route('/usuarios/')
+def usuarios():
+    list_users = ['Dorian', 'Andy', 'Eyden']
+    return render_template('usuarios.html', list_users_html = list_users)
+
+""" Archivos estaticos """
+@app.route('/staticFiles/')
+def staticFiles():
+    return render_template('static.html')
+
+
 if __name__ == '__main__':
     app.run(debug = True, port = 8000)

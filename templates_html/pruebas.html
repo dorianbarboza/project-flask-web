@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Usuario</title>
+</head>
+<body>
+  <h1>page usuario</h1>
+  <h4> {{ name_html }} </h4>
+  <h4> {{ lastname_html }} </h4>
+  <h4> {{ name_complete_html }}</h4>
+
+  {% if age_html >= 18 %}
+      <p> {{ name_html }} es mayor de edad, tiene {{ age_html }}</p>
+  {% endif %}
+
+  {% for item in name_complete_html %}
+      <p>{{ item }}</p>
+  {% endfor %}
+
+
+</body>
+</html>
