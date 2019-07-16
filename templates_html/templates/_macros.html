@@ -1,0 +1,12 @@
+{% macro show_macro(value) %}
+    <h4> {{ value }}</h4>
+    <h4> {{ value }}</h4>
+    <h4> {{ value }}</h4>
+    <h4> {{ value }}</h4>
+    <h4> {{ value }}</h4>
+{% endmacro %}
+
+{% macro render_field(field) %}
+    <td> {{ field.label }}
+    <dd> {{ field(**kwargs)|safe }}
+{% endmacro %}

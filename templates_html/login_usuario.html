@@ -1,0 +1,12 @@
+{% extends 'login/login.html' %}
+
+{% block block_login %}
+    <h4>Acceder como usuario</h4>
+    <p>{{ name_html }}</p>
+    <p>{{ lastname_html }}</p>
+
+    {% from "_macros.html" import show_macro %}
+    {{ show_macro('Dorian Barboza') }}
+
+
+{% endblock %}

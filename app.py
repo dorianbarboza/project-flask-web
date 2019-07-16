@@ -4,6 +4,8 @@ from flask import Flask
 from flask import request
 from flask import render_template
 
+import forms
+
 app = Flask(__name__, template_folder = 'templates_html')
 
 @app.route('/')
@@ -65,6 +67,31 @@ def usuarios():
 def staticFiles():
     return render_template('static.html')
 
+""" Templates herencia """
+@app.route('/login_cliente/<name>/<lastname>/')
+def login_cliente(name = 'Nulo', lastname = 'Nulo' ):
+    return render_template('login_cliente.html', name_html = name, lastname_html = lastname)
+
+""" Templates herencia y Macros """
+@app.route('/login_usuario/<name>/<lastname>/')
+def login_usuario(name = 'Nulo', lastname = 'Nulo'):
+    return render_template('login_usuario.html', name_html = name, lastname_html = lastname)
+
+@app.route('/formulario/', methods = ['GET', 'POST'])
+def formulario():
+    formulario = forms.Formulario(request.form)
+
+    if request.method == 'POST':
+        print(formulario.username.data)
+        print(formulario.email.data)
+        print(formulario.comment.data)
+
+    return render_template('formulario.html', form = formulario)
+
+""" App """
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
 
 if __name__ == '__main__':
     app.run(debug = True, port = 8000)
