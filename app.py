@@ -3,13 +3,15 @@
 from flask import Flask
 from flask import request
 from flask import render_template
+from flask_bootstrap import Bootstrap
 
 import forms
 
 app = Flask(__name__, template_folder = 'templates_html')
 
-@app.route('/')
-def home():
+""" Cambiado pero no verificado"""
+@app.route('/pagina')
+def pagina():
     return 'home page'
 
 """ RUTAS Y PARAMETROS """
@@ -89,9 +91,28 @@ def formulario():
     return render_template('formulario.html', form = formulario)
 
 """ App """
-@app.route('/menu')
+
+# List pages:
+# home
+# menu
+# about
+
+@app.route('/')
+@app.route('/home/')
+def home():
+    return render_template('home.html')
+
+@app.route('/menu/')
 def menu():
     return render_template('menu.html')
+
+@app.route('/about/')
+def about():
+    return render_template('about.html')
+
+@app.route('/example/')
+def example():
+    return render_template('example.html')
 
 if __name__ == '__main__':
     app.run(debug = True, port = 8000)
